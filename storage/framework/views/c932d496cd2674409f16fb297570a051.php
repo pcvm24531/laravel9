@@ -1,0 +1,1 @@
+<h1>This is my contact page</h1><?php /**PATH C:\xampp\htdocs\laravel\laravel9\resources\views/contact.blade.php ENDPATH**/ ?>

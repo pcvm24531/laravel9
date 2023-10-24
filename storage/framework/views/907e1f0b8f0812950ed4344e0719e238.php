@@ -1,0 +1,1 @@
+<h1>This is my blog</h1><?php /**PATH C:\xampp\htdocs\laravel\laravel9\resources\views/blog.blade.php ENDPATH**/ ?>
