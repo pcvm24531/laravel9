@@ -13,6 +13,13 @@ class UserController extends Controller
     }
 
     public function add(Request $request){
+        $request->validate(
+            [
+                'name'=>['required'],
+                'email'=>['required','email','unique:users'],
+                'password'=>['required','min:8']
+            ]
+        );
         User::create(
             [
                 "name"=>$request->name,
@@ -25,6 +32,11 @@ class UserController extends Controller
 
     public function delete(User $user){
         $user->delete();
+        return back();
+    }
+
+    public function update(User $user){
+        $user->update();
         return back();
     }
 
