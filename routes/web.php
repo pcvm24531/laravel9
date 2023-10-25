@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'App\Http\Controller\UserController@index');
-Route::post('users', 'App\Http\Controller\UserController@store')->name('user.store');
-Route::get('users/{user}', 'App\Http\Controller\UserController@destroy')->name('user.destroy');
+Route::get('/', [UserController::class, 'index'])->name('users.index');
+Route::post('users', [UserController::class, 'add'])->name('users.newUser');
+Route::delete('users/{user}', [UserController::class, 'delete'])->name('users.deleteUser');
