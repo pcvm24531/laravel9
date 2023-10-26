@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [UserController::class, 'index'])->name('users.index');
-Route::post('users', [UserController::class, 'add'])->name('users.newUser');
-Route::delete('users/{user}', [UserController::class, 'delete'])->name('users.deleteUser');
-Route::put( 'users/{user}', [UserController::class, 'update'] )->name('users.updateUser');
+//Agrupar rutas
+Route::controller(UserController::class)->group(function(){
+    Route::get('/','index');
+    Route::post('users', 'add')->name('users.newUser');
+    Route::delete('users/{user}', 'delete')->name('users.deleteUser');
+    Route::put( 'users/{user}', 'update' )->name('users.updateUser');
+});
