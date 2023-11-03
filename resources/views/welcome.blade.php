@@ -8,9 +8,9 @@
 <body>
     <div class="content">
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="{{route('index')}}">Home</a></li>
+            <li><a href="{{route('users.deleteUser')}}">Eliminar datos</a></li>
+            <li><a href="{{route('users.updateUser')}}">Actualizar datos</a></li>
         </ul>
     </div>
 </body>

@@ -1,6 +1,9 @@
 <?php
+
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Agrupar rutas
+//Agrupación UserController
 Route::controller(UserController::class)->group(function(){
-    Route::get('/','index');
-    Route::post('users', 'add')->name('users.newUser');
-    Route::delete('users/{user}', 'delete')->name('users.deleteUser');
-    Route::put( 'users/{user}', 'update' )->name('users.updateUser');
+    Route::get('users/','index');
+    Route::post('users/add', 'add')->name('users.newUser');
+    Route::delete('users/delete/{user}', 'delete')->name('users.deleteUser');
+    Route::put( 'users/update/{user}', 'update' )->name('users.updateUser');
 });
+
+//Agrupación PageController
+Route::controller( PageController::class )->group(function(){
+    Route::get( '/', 'home' )->name('home');
+    Route::get( 'blog', 'blog' )->name('blog');
+    Route::get( 'blog/{slug}', 'post' )->name('post');
+});
+
